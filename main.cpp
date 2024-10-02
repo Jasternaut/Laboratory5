@@ -52,15 +52,14 @@ int program2()
 
     if (num <= 1000000000)
     {
-        while (num)
-        {           
-            do
-            {
-                if (num % 2 != 0)
-                    result += num % 10;
-            }
-            while (num /= 10);                           
+                 
+        do
+        {
+            if (num % 2 != 0)
+                result += num % 10;
         }
+        while (num /= 10);                           
+        
     }
 
     std::cout << result << " - Summ of all nechet numbers" << std::endl;
@@ -71,7 +70,7 @@ int program2()
 int main()
 {
     std::cout << "Select number of Task: ";
-    int select;
+    unsigned int select;
     std::cin >> select;
 
     switch(select)
