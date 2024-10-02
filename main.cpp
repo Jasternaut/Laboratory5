@@ -1,33 +1,44 @@
 #include <iostream>
 
+/*
+Лабораторная работа 5. Циклы.
+
+Дана последовательность натуральных чисел {Aj}. Найти сумму чисел, 
+оканчивающихся цифрой 0 или 7, наибольшее из таких чисел и номер этого числа в последовательности.
+
+Дано натуральное число N (N<10^9). Найти сумму нечетных цифр числа N.
+
+*/
+
 int program1()
 {
     int a;
     int counter = 0;
     int sum = 0;
-    int logger = 0; // будет присваивать наибольшее значение
-    int logger_index = 0;
+    int max = 0; // будет присваивать наибольшее значение
+    int max_index = 0;
 
     while(counter != 10)
     {
-        std::cin >> a;
+        std::cin >> a;     
 
-        if (logger < a)
+        if (a % 10 == 0 || a % 10 == 7)      // оканчивается на 0 или 7
         {
-            logger = a;
-            logger_index = counter;
-        }
+            sum += a;
 
-        if (a % 10 == 0)      // оканчивается на 0
-            sum += a;
-        else if (a % 10 == 7) // оканчивается на 7
-            sum += a;
+            if (max < a)
+            {
+                max = a;
+                max_index = counter;
+            }
+        }
+                   
 
         counter++;
     }
     
-    std::cout << "Max number: " << logger << std::endl;
-    std::cout << "Max number Index: " << logger_index << std::endl;
+    std::cout << "Max number: " << max << std::endl;
+    std::cout << "Max number Index: " << max_index << std::endl;
     std::cout << "Summ: " << sum << std::endl;
 
     return 0;
